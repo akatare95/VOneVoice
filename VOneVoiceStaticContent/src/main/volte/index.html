@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+    <title>VZ Bootstrap Framework | Verizon</title>
+    <!-- Bootstrap core CSS -->
+    <link href="styles/bootstrap.min.css" rel="stylesheet">
+    <link href="styles/vzbootstrap.min.css" rel="stylesheet">
+    <link href="vz-components/vz-search/vz-search.min.css" rel="stylesheet">
+    <link href="styles/styles.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="scripts/html5shiv.min.js"></script>
+      <script src="scripts/respond.min.js"></script>
+    <![endif]-->
+   
+  </head>
+  <body>
+    <!--Global Navigation-->
+    <header class="vz-global-header">
+        <nav class="navbar navbar-default" role="navigation">
+          <div class="container">
+
+            <!-- mega menu starts -->
+            <div class="navbar-header">
+                <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <button type="button" class="search-toggle"></button>
+                <a class="profile-toggle collapsed visible-xs" href="#" data-target="#profile-dropdown" data-toggle="collapse" aria-expanded="false">
+                  <img alt="User's Profile Avatar" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAMAAABg3Am1AAAAWlBMVEXHyMrJyszMzc/P0NLLzM6wsrSsrrC2uLqfoaOjpaebnaC6vL6ztbemqKrR0tSWmJqpq63W19jT1NXOz9GHiYzU1deQkpWMjpGYmpyTlZjZ2tuDhYepq67Cw8WqqozrAAABu0lEQVRIx8WUSYKDIBBFFYOgDEYckNjc/5otELvCkGnVb5XFf/4qNFT/Qf3Ih/FL4APFhy01+77PPUdBehOv6H6iGUKglOPI6v0BjEAp5RGq9RxBpkMpGv7xaOrnGH2ZplBSzrM5pWsaMLJ8I3TKisCIBJ9HOofIYIAA+YatOVdZMO55iQsCVeo0ogKXl8IUWJTvgAoosEMJskBFXKBWUxJmqxRUQIGUTA9bAS3cUKECjsgVYL31BTRd/FDnQcFE3PQlTDeGLUDwEynFhp4WGMQhKD/TXbgEYam3orCR0c0ES5wrLGNHuxxK5RhmyoXqEHLI7akwViKHjC+EG7umtLfbK6H5SbGZAKfkDNwmqCMPpxS/BydUSZ7dC4IQv2kvjDimcUL2ps8lfEWUDwXRtwRLuIrD4I/4Dcbka4WZvCE4+aNfQv5xIqgIQ8l1ICdCM5dP/3FQ4Qy+rhtnHnH8DHkoSCsUGowxg8CMt5s5IEceCkA4jYkOMX2l5IubrO62lN5CPr1ba077Argu38YWd/QJLcvyjPx0rxCYVYDlV/EecNj1U3h4fvs5voPgL/AC/wLrhG9wAvsGW/0CxKlP74i8jegAAAAASUVORK5CYII=">
+                </a>
+                <a class="navbar-brand" href="#"><span></span></a>
+            </div>
+            <!--<div class="vz-app-name" id="vz-app-name">
+              <h1>OneVoice</h1>         
+            </div>-->
+            <!-- mobile navbar header ends -->
+            <!-- mega menu ends --> 
+
+            <!-- search form starts -->
+            <div id="vz-search-form">
+              <div class="search_inner">
+                <!-- search options starts -->
+                <div class="search_options">
+                  <div role="application" class="form-item">
+                    <span id="vz-search-mobile-close" class="vz-search-mobile-close visible-xs"></span>
+                    <div class="form-item">
+                      <div id ="edit-search-content"  class="form-text"> 
+                        <!-- search results starts -->
+                        <span id="span_arrow_top" class="span_arrow" style="display: none;"></span>
+                        <div class="searchOverlayTop" id="searchOverlayTop1">
+                          <!-- search results for people starts -->
+                          <div class="results">
+                            <span class="open" id="autocomplete_0">Take Action</span>
+                            <div class="Suggested" style="display:block">
+                              <div class="r url">
+                                <div>
+                                  <a href="javascript:void(0)" onclick=
+                                  "autoCompleletTrackTakeaction('Submit a Timesheet - VZ Time','https://time.verizon.com/vztime'); return false;">
+                                  Submit a <strong>Time</strong>sheet - VZ Time</a>
+                                </div>
+                              </div>
+                              <div class="r url">
+                                <div>
+                                  <a href="javascript:void(0)" onclick=
+                                  "autoCompleletTrackTakeaction('Submit Future Time Off Request - VZ Time','https://time.verizon.com/vztime/#/your-time/time-off-calendar'); return false;">
+                                  Submit Future <strong>Time</strong> Off Request - VZ Time</a>
+                                </div>
+                              </div>
+                              <div class="r url">
+                                <div>
+                                  <a href="javascript:void(0)" onclick=
+                                  "autoCompleletTrackTakeaction('Submit a Timesheet - Peoplesoft Time &amp; Labor','https://ps-prdsso.ehr.verizon.com/psc/vzehpra/EMPLOYEE/HRMS/c/ROLE_EMPLOYEE.TL_MSS_EE_SRCH_PRD.GBL?FolderPath=PORTAL_ROOT_OBJECT.CO_EMPLOYEE_SELF_SERVICE.HC_TIME_REPORTING.HC_RECORD_TIME.HC_TL_SS_JOB_SRCH_EE_GBL&amp;IsFolder=false&amp;IgnoreParamTempl=FolderPath,IsFolder'); return false;">
+                                  Submit a <strong>Time</strong>sheet - Peoplesoft Time &amp; Labor</a>
+                                </div>
+                              </div>
+                            </div><span class="open" id="autocomplete_1">Featured/Info/Guidelines</span>
+                            <div class="Suggested" style="display:block">
+                              <div class="r url">
+                                <div>
+                                  <a href="javascript:void(0)" onclick=
+                                  "autoCompleletTrackSuggested('Life and Time Off','https://aboutyou.verizon.com/HRGuidelines/LifeAndTimeOff'); return false;">
+                                  Life and <strong>Time</strong> Off</a>
+                                </div>
+                              </div>
+                              <div class="r url">
+                                <div>
+                                  <a href="javascript:void(0)" onclick=
+                                  "autoCompleletTrackSuggested('Attendance','https://aboutyou.verizon.com/HRGuidelines/LifeAndTimeOff/TimeOffAndLeaveInformation/Attendance'); return false;">
+                                  Attendance</a>
+                                </div>
+                              </div>
+                              <div class="r url">
+                                <div>
+                                  <a href="javascript:void(0)" onclick=
+                                  "autoCompleletTrackSuggested('Vacation','https://aboutyou.verizon.com/HRGuidelines/LifeAndTimeOff/TimeOffAndLeaveInformation/Vacation'); return false;">
+                                  Vacation</a>
+                                </div>
+                              </div>
+                              <div class="r url">
+                                <div>
+                                  <a href="javascript:void(0)" onclick=
+                                  "autoCompleletTrackSuggested('Having a Baby (Wireless)','https://aboutyou.verizon.com/HRGuidelines/LifeAndTimeOff/LifeEvents/HavingAbabyWireless'); return false;">Having a Baby (Wireless)</a>
+                                </div>
+                              </div>
+                              <div class="r url">
+                                <div>
+                                  <a href="javascript:void(0)" onclick=
+                                  "autoCompleletTrackSuggested('Time Off and Flexibility','https://aboutyou.verizon.com/HRGuidelines/LifeAndTimeOff/TimeOffAndLeaveInformation'); return false;">
+                                  <strong>Time</strong> Off and Flexibility</a>
+                                </div>
+                              </div>
+                            </div><span class="open" id="autocomplete_2">Additional Search Keywords</span>
+                            <div class="Search" style="display:block">
+                              <div class="r url">
+                                <div>
+                                  <a href="javascript:void(0)" onclick=
+                                  "autoCompleletTrack('time entry');"><strong>time</strong> entry</a>
+                                </div>
+                              </div>
+                              <div class="r url">
+                                <div>
+                                  <a href="javascript:void(0)" onclick=
+                                  "autoCompleletTrack('trs time entry');">trs <strong>time</strong>
+                                  entry</a>
+                                </div>
+                              </div>
+                              <div class="r url">
+                                <div>
+                                  <a href="javascript:void(0)" onclick=
+                                  "autoCompleletTrack('timeentry');"><strong>time</strong>entry</a>
+                                </div>
+                              </div>
+                              <div class="r url">
+                                <div>
+                                  <a href="javascript:void(0)" onclick=
+                                  "autoCompleletTrack('flex time');">flex <strong>time</strong></a>
+                                </div>
+                              </div>
+                              <div class="r url">
+                                <div>
+                                  <a href="javascript:void(0)" onclick=
+                                  "autoCompleletTrack('tr time entry');">tr <strong>time</strong>
+                                  entry</a>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="view-all">
+                              <a href="javascript:void(0)" onclick="autoCompleletTrack('time');">See all
+                              search results &gt;</a>
+                            </div><span class="open" type="Search">People</span>
+                              <div class="people">
+                                <div class="r">
+                                  <div> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAMAAABg3Am1AAAAWlBMVEXHyMrJyszMzc/P0NLLzM6wsrSsrrC2uLqfoaOjpaebnaC6vL6ztbemqKrR0tSWmJqpq63W19jT1NXOz9GHiYzU1deQkpWMjpGYmpyTlZjZ2tuDhYepq67Cw8WqqozrAAABu0lEQVRIx8WUSYKDIBBFFYOgDEYckNjc/5otELvCkGnVb5XFf/4qNFT/Qf3Ih/FL4APFhy01+77PPUdBehOv6H6iGUKglOPI6v0BjEAp5RGq9RxBpkMpGv7xaOrnGH2ZplBSzrM5pWsaMLJ8I3TKisCIBJ9HOofIYIAA+YatOVdZMO55iQsCVeo0ogKXl8IUWJTvgAoosEMJskBFXKBWUxJmqxRUQIGUTA9bAS3cUKECjsgVYL31BTRd/FDnQcFE3PQlTDeGLUDwEynFhp4WGMQhKD/TXbgEYam3orCR0c0ES5wrLGNHuxxK5RhmyoXqEHLI7akwViKHjC+EG7umtLfbK6H5SbGZAKfkDNwmqCMPpxS/BydUSZ7dC4IQv2kvjDimcUL2ps8lfEWUDwXRtwRLuIrD4I/4Dcbka4WZvCE4+aNfQv5xIqgIQ8l1ICdCM5dP/3FQ4Qy+rhtnHnH8DHkoSCsUGowxg8CMt5s5IEceCkA4jYkOMX2l5IubrO62lN5CPr1ba077Argu38YWd/QJLcvyjPx0rxCYVYDlV/EecNj1U3h4fvs5voPgL/AC/wLrhG9wAvsGW/0CxKlP74i8jegAAAAASUVORK5CYII=" />
+                                    <h4>User <strong>name</strong></h4>
+                                  </div>
+                                  <div class="title-location title-job">tech mgr-system dev</div>
+                                  <div class="title-location title-lob">wireline enterprise solutions</div>
+                                  <div class="title-location title-phone"><a class="phone-url" >999-999-9999</a></div>
+                                  <div class="title-location title-email"><a href="mailto:username@email.com">username@email.com</a></div>
+                                </div>
+                                <div class="r">
+                                  <div> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAMAAABg3Am1AAAAWlBMVEXHyMrJyszMzc/P0NLLzM6wsrSsrrC2uLqfoaOjpaebnaC6vL6ztbemqKrR0tSWmJqpq63W19jT1NXOz9GHiYzU1deQkpWMjpGYmpyTlZjZ2tuDhYepq67Cw8WqqozrAAABu0lEQVRIx8WUSYKDIBBFFYOgDEYckNjc/5otELvCkGnVb5XFf/4qNFT/Qf3Ih/FL4APFhy01+77PPUdBehOv6H6iGUKglOPI6v0BjEAp5RGq9RxBpkMpGv7xaOrnGH2ZplBSzrM5pWsaMLJ8I3TKisCIBJ9HOofIYIAA+YatOVdZMO55iQsCVeo0ogKXl8IUWJTvgAoosEMJskBFXKBWUxJmqxRUQIGUTA9bAS3cUKECjsgVYL31BTRd/FDnQcFE3PQlTDeGLUDwEynFhp4WGMQhKD/TXbgEYam3orCR0c0ES5wrLGNHuxxK5RhmyoXqEHLI7akwViKHjC+EG7umtLfbK6H5SbGZAKfkDNwmqCMPpxS/BydUSZ7dC4IQv2kvjDimcUL2ps8lfEWUDwXRtwRLuIrD4I/4Dcbka4WZvCE4+aNfQv5xIqgIQ8l1ICdCM5dP/3FQ4Qy+rhtnHnH8DHkoSCsUGowxg8CMt5s5IEceCkA4jYkOMX2l5IubrO62lN5CPr1ba077Argu38YWd/QJLcvyjPx0rxCYVYDlV/EecNj1U3h4fvs5voPgL/AC/wLrhG9wAvsGW/0CxKlP74i8jegAAAAASUVORK5CYII=" />
+                                    <h4>User <strong>name</strong></h4>
+                                  </div>
+                                  <div class="title-location title-job">tech mgr-system dev</div>
+                                  <div class="title-location title-lob">wireline enterprise solutions</div>
+                                  <div class="title-location title-phone"><a class="phone-url" >999-999-9999</a></div>
+                                  <div class="title-location title-email"><a href="mailto:username@email.com">username@email.com</a></div>
+                                </div>
+                                <div class="r">
+                                  <div> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAMAAABg3Am1AAAAWlBMVEXHyMrJyszMzc/P0NLLzM6wsrSsrrC2uLqfoaOjpaebnaC6vL6ztbemqKrR0tSWmJqpq63W19jT1NXOz9GHiYzU1deQkpWMjpGYmpyTlZjZ2tuDhYepq67Cw8WqqozrAAABu0lEQVRIx8WUSYKDIBBFFYOgDEYckNjc/5otELvCkGnVb5XFf/4qNFT/Qf3Ih/FL4APFhy01+77PPUdBehOv6H6iGUKglOPI6v0BjEAp5RGq9RxBpkMpGv7xaOrnGH2ZplBSzrM5pWsaMLJ8I3TKisCIBJ9HOofIYIAA+YatOVdZMO55iQsCVeo0ogKXl8IUWJTvgAoosEMJskBFXKBWUxJmqxRUQIGUTA9bAS3cUKECjsgVYL31BTRd/FDnQcFE3PQlTDeGLUDwEynFhp4WGMQhKD/TXbgEYam3orCR0c0ES5wrLGNHuxxK5RhmyoXqEHLI7akwViKHjC+EG7umtLfbK6H5SbGZAKfkDNwmqCMPpxS/BydUSZ7dC4IQv2kvjDimcUL2ps8lfEWUDwXRtwRLuIrD4I/4Dcbka4WZvCE4+aNfQv5xIqgIQ8l1ICdCM5dP/3FQ4Qy+rhtnHnH8DHkoSCsUGowxg8CMt5s5IEceCkA4jYkOMX2l5IubrO62lN5CPr1ba077Argu38YWd/QJLcvyjPx0rxCYVYDlV/EecNj1U3h4fvs5voPgL/AC/wLrhG9wAvsGW/0CxKlP74i8jegAAAAASUVORK5CYII=" />
+                                    <h4>User <strong>name</strong></h4>
+                                  </div>
+                                  <div class="title-location title-job">tech mgr-system dev</div>
+                                  <div class="title-location title-lob">wireline enterprise solutions</div>
+                                  <div class="title-location title-phone"><a class="phone-url" >999-999-9999</a></div>
+                                  <div class="title-location title-email"><a href="mailto:username@email.com">username@email.com</a></div>
+                                </div>
+                                <div class="r">
+                                  <div> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAMAAABg3Am1AAAAWlBMVEXHyMrJyszMzc/P0NLLzM6wsrSsrrC2uLqfoaOjpaebnaC6vL6ztbemqKrR0tSWmJqpq63W19jT1NXOz9GHiYzU1deQkpWMjpGYmpyTlZjZ2tuDhYepq67Cw8WqqozrAAABu0lEQVRIx8WUSYKDIBBFFYOgDEYckNjc/5otELvCkGnVb5XFf/4qNFT/Qf3Ih/FL4APFhy01+77PPUdBehOv6H6iGUKglOPI6v0BjEAp5RGq9RxBpkMpGv7xaOrnGH2ZplBSzrM5pWsaMLJ8I3TKisCIBJ9HOofIYIAA+YatOVdZMO55iQsCVeo0ogKXl8IUWJTvgAoosEMJskBFXKBWUxJmqxRUQIGUTA9bAS3cUKECjsgVYL31BTRd/FDnQcFE3PQlTDeGLUDwEynFhp4WGMQhKD/TXbgEYam3orCR0c0ES5wrLGNHuxxK5RhmyoXqEHLI7akwViKHjC+EG7umtLfbK6H5SbGZAKfkDNwmqCMPpxS/BydUSZ7dC4IQv2kvjDimcUL2ps8lfEWUDwXRtwRLuIrD4I/4Dcbka4WZvCE4+aNfQv5xIqgIQ8l1ICdCM5dP/3FQ4Qy+rhtnHnH8DHkoSCsUGowxg8CMt5s5IEceCkA4jYkOMX2l5IubrO62lN5CPr1ba077Argu38YWd/QJLcvyjPx0rxCYVYDlV/EecNj1U3h4fvs5voPgL/AC/wLrhG9wAvsGW/0CxKlP74i8jegAAAAASUVORK5CYII=" />
+                                    <h4>User <strong>name</strong></h4>
+                                  </div>
+                                  <div class="title-location title-job">tech mgr-system dev</div>
+                                  <div class="title-location title-lob">wireline enterprise solutions</div>
+                                  <div class="title-location title-phone"><a class="phone-url" >999-999-9999</a></div>
+                                  <div class="title-location title-email"><a href="mailto:username@email.com">username@email.com</a></div>
+                                </div>
+                              </div>
+                              <div class="view-all"><a href="javascript:;">See All People Results ></a></div>
+                          </div> <!-- search results for people ends --> 
+                        </div> <!-- search results ends -->
+                        <label class="sr-only" for="search_content">Search Content</label>
+                        <input type="text" class="formInput" onfocus="if(this.value == 'Search') { this.value = ''; }" onblur="if(this.value == '') { this.value = 'Search'; }" value="Search" name="search_content" id="search_content" tabindex="4">
+                        <a id="hrefHeaderSearch" title="Search"  href="javascript:;" class="form-submit"></a>
+                      </div>
+                    </div>
+                    <div class="org_chart"><a tabindex="8" href="javascript:;" class="adv-search-link plus_icon" title="Advanced edirectory Search"><span>Advanced Search</span></a></div></div>
+
+                </div> <!-- search options ends --> 
+              </div>
+            </div> <!-- search form ends --> 
+
+            <div id="navbar" class="collapse navbar-collapse">
+              <ul class="nav navbar-nav">
+
+                <!-- VZ Home Dropdown menu for consuming apps -->
+                <li class="dropdown hidden-xs hidden-sm vz-home-dropdown" >
+                  <a href="#" id="vz-home-icon-link" class="vz-home-icon-link">
+                    <span><i class="fa fa-lg fa-home"></i>OneVoice</span>
+                  </a>
+                  <ul class="dropdown-menu fullwidth">
+                      <li class="dropdown-content withdesc">
+                        <div class="row-eq-height">
+                          <div class="col-sm-3">
+                            <ul>
+                              <li><a href="#">Active Call Survey</a></li>
+                              <li><a href="#">DB ANI</a></li>
+                              <li><a href="#">Vocab</a></li>
+                            </ul>
+                          </div>
+                          <div class="col-sm-3">
+                            <ul>
+                              <li><a href="#">CTI Dialer</a></li>
+                              <li><a href="#">Mgmt Tool (IMT)</a></li>
+                            </ul>
+                          </div>
+                          <div class="col-sm-3">
+                            <ul>
+                              <li><a href="#">CTI Admin</a></li>
+                              <li><a href="#">Messaging</a></li>
+                            </ul>
+                          </div>
+                          <div class="col-sm-3">
+                            <ul>
+                              <li><a href="#">CTI Dashboard</a></li>
+                              <li><a href="#">Outbound</a></li>
+                            </ul>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                </li>
+                <li><a href="https://aboutyou.verizon.com">User Admin</a></li>
+
+                <li><a href="#">Approval Queue</a></li>
+               
+              </ul>
+            </div><!--/.nav-collapse -->
+            <!-- /.container-fluid -->
+
+            <!--User Profile Menu-->
+            <div class="dropdown pull-right pull-mobile-none" id="profile-menu">
+              <a data-toggle="dropdown" class="dropdown-toggle" href="#" aria-haspopup="true" aria-expanded="false">
+                <span class="name">Username</span>
+                <span class="glyphicon glyphicon-menu-down"></span>
+                <img alt="User's Profile Avatar" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAMAAABg3Am1AAAAWlBMVEXHyMrJyszMzc/P0NLLzM6wsrSsrrC2uLqfoaOjpaebnaC6vL6ztbemqKrR0tSWmJqpq63W19jT1NXOz9GHiYzU1deQkpWMjpGYmpyTlZjZ2tuDhYepq67Cw8WqqozrAAABu0lEQVRIx8WUSYKDIBBFFYOgDEYckNjc/5otELvCkGnVb5XFf/4qNFT/Qf3Ih/FL4APFhy01+77PPUdBehOv6H6iGUKglOPI6v0BjEAp5RGq9RxBpkMpGv7xaOrnGH2ZplBSzrM5pWsaMLJ8I3TKisCIBJ9HOofIYIAA+YatOVdZMO55iQsCVeo0ogKXl8IUWJTvgAoosEMJskBFXKBWUxJmqxRUQIGUTA9bAS3cUKECjsgVYL31BTRd/FDnQcFE3PQlTDeGLUDwEynFhp4WGMQhKD/TXbgEYam3orCR0c0ES5wrLGNHuxxK5RhmyoXqEHLI7akwViKHjC+EG7umtLfbK6H5SbGZAKfkDNwmqCMPpxS/BydUSZ7dC4IQv2kvjDimcUL2ps8lfEWUDwXRtwRLuIrD4I/4Dcbka4WZvCE4+aNfQv5xIqgIQ8l1ICdCM5dP/3FQ4Qy+rhtnHnH8DHkoSCsUGowxg8CMt5s5IEceCkA4jYkOMX2l5IubrO62lN5CPr1ba077Argu38YWd/QJLcvyjPx0rxCYVYDlV/EecNj1U3h4fvs5voPgL/AC/wLrhG9wAvsGW/0CxKlP74i8jegAAAAASUVORK5CYII=">
+                <!-- <span class="notification-count">10</span> -->
+              </a>
+              <div role="menu" class="dropdown-menu profile-dropdown" id="profile-dropdown">
+                <div class="user-info">
+                  <div class="user-avatar">
+                    <img class="user pull-left" title="User Profile Picture" alt="User Profile Picture" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAMAAABHPGVmAAAAV1BMVEXHyMrJyszLzM7NztDR0tPT1NWxs7Wtr7HP0NLV1tiqrK+oqqy0triVl5q3ubuho6aZm526vL6Rk5aeoKPY2ducnqCNj5Klp6mkpqiJi46GiIuChIfAwsSDNt0cAAAD1ElEQVRo3uXZ21arMBCAYcIhnAmEc837P+cetO20TAgDFm/2j1dd2M8ZcKno/b+J7+Oq4L3f+rglsKsksdMnBV/4rwn/UwwKG/2eIUIVj0uV+RizEkw2fGF1TJ2TBhJN/bXqlntr5neE135hyGRBQJizRmCGL3u1F4BzUnkjAglf9MahRbBiThFg3ByBQpiDRgA1DgKVgChMI1gS882dSgJkUOEbUD3vVSUJUQ4ZSQXvcnMe8+AnwBCFbyR63i9OuAoiL0RSMAwYJUTmrrANqJ4HxiFDqrCN0AysyhBiKGhADyPMBl7ei+K7FWKEJRORoUVxDoKGGAbNOlS0VgTEMKBGc4sYCiJoQDEbMUQhCB0kXIoUG6miu+IehS4rirQumUcRQXRhm4OgEZXspvRFoaPQQZ6GB5+teR8qRYWMYh8EDW46BwSio7gHCeb5gHKbdkdBBJfVz0PNb56bd4UiAloNImZAypr5AUiNiP17xXJF5DAcmQTO9lPbVXFuqx0GfQwxaerYF9lWBClAen6ASEAgsq/NQQDRuuQbtda6SOmldyPpdAZJXQjdVjrCzd+y6+FsQMi+bEiCSHYIqeFs7xVJ1oiA1ttKK7hlDkwCZycp3ZeAcBCCeAuiuAGiOoJAW0j0jaRt3x9A+l4+kOgAItuWj8C54gySgDExAyTuOEiACBhQoQDhKsoHZIncwy4EytU08ppU051Cui7IRy5SdUvHEVDSJufl3Y0TCBSzDNMxEHp3PRDeKCEi/FsYET9jJLvfIJBkIOY4grfXwhgGEr4joR2BbMhSFO9W3AkbIqDNnyeoVLuIsG0LEfqTkSL+niFXg9A72HFRHkoB7+M6PByEbGsHwVGEdNeRbW0idF94VVwEGYT+3sXaV+Iyqo6xLYrQUYwDCWyDEITsi16VqNjM0FuLbst56Z/KpiEjMgjZFkXsiho3kNLYjS2EXhVUhjmubPVzjob7b0b3KKCYYdA2JYfXn4Z7EDrKWhkHeDdpMaCGGHQQOgpVAv1d3LzX6iWVUgORvWcrqIz6p6lqsKLWPxk0yLIE5ylRtORpqIRDl9mDqNTzxT78JhhPiRAhStKXL6k8k/n49pK0GIjwlLzcq2EaeO3XSlzv51FjQbhPU8Fg1BtqQMznwkHe82q4z4WpYtqeWy6owVFM1h5IVT7TAOShNEhwGekd+t+GV0zqTHkj0HAqXhOr003S7BsgTL8sL4wTkNn4meINyBT5R8sqasgcupYxcXZFxcUGVWR8Vc3LINf1RAp5Xc9R5IVVz++QK7sjTXFl5o5UV/anyKX9GfIPonZJmgkP8L4AAAAASUVORK5CYII=" />
+                  </div>
+                  <div class="user-links">
+                    <h4><span>Username</span></h4>
+                    <ul class="list-unstyled">
+                      <li><a title="My Profile" href="#">My Profile</a></li>
+                      <li><a title="Not User" href="#">Not User Name?</a></li>
+                      <li><a title="Signout" href="#">Signout</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div><!-- End User Profile dropdown -->
+
+            <!--Help and Feedback tabs-->
+            <ul id="help-feedback">
+                <li class="help"><a title="Help" href="#"></a></li>
+                <li class="feedback"><a title="Feedback" href="#"><span></span></a></li>
+            </ul>
+            
+          </div>
+        </nav>
+    </header>
+
+    <div class="container whitepage">
+
+      <!-- Primary Navigation section -->
+      <div id="primary-nav">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="page-header">
+              <h1>VZBootstrap Header Full Template</h1>
+              <ol class="breadcrumb">
+                <li><a href="#">Home</a></li>
+                <li class="active">Header Full Template</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Global Content Section -->
+      <div class="row">
+        <div class="col-md-3">
+            <div class="subnav">
+            <ul>
+            <li>ACS FE</li>
+            <li>CTI Admin</li>
+            <li>CTI Dashboard</li>
+            </ul>
+            </div>
+        </div><!-- /.col-md-3 -->
+        <div class="col-md-9">
+            <div class="subnav">
+            <ul class="list-container-one">
+            <li>
+            <p class="super-note">Module</p>
+            <select id="mod-access" class="module-item-name">
+                <option val="ANI">ANI</option>
+                <option val="IMEI">IMEI</option>
+                <option val="Messaging">Messaging</option>
+                <option val="AccessOne">AccessOne</option>
+            </select>
+            </li>
+            <li class="list-container-item-one">
+            <p class="super-note">Level</p>
+            <select id="level-access"  class="module-item-name">
+            
+            </select>
+            </li>
+            <li>
+            <p class="super-note">Reason</p>
+            <textarea></textarea>
+            </li>
+            </ul>
+            <a role="button" class="btn-submit">Request</a>
+            </div>
+        </div><!-- /.col-md-3 -->
+      </div>
+    </div><!-- /.container -->
+
+    <!-- Global Footer -->
+    <footer class="container disclaimer padding-left-right-zero">
+        <div class="row">
+            <div class="col-md-8 col-xs-8">
+                <p>Proprietary and Confidential. Not for disclosure outside of Verizon.</p>
+            </div>
+            <div class="col-md-4 col-xs-4">
+                <p class="pull-right pull-mobile-none">Copyright &copy;
+                    <script>document.write(new Date().getFullYear());</script>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+  <script src="scripts/jquery.min.js"></script>
+  <script src="scripts/bootstrap.min.js"></script>
+  <script src="scripts/vzbootstrap.min.js"></script>
+  <script src="vz-components/vz-search/vz-search.min.js"></script>
+  <script src="scripts/scripts.js"></script>
+  </body>
+</html>
