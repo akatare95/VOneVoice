@@ -24,6 +24,7 @@
     	var app = angular.module("VOVApp", []);
     </script>
    <script src="controllers/searchBarCtrl.js"></script>
+   <script src="controllers/footercontroller.js"></script>
   </head>
   <body>
     <!--Global Navigation-->
@@ -156,15 +157,7 @@
 
       <!-- Global Content Section -->
       <div class="row">
-        <div class="col-md-3">
-            <div class="subnav">
-            <ul>
-            <li>ACS FE</li>
-            <li>CTI Admin</li>
-            <li>CTI Dashboard</li>
-            </ul>
-            </div>
-        </div><!-- /.col-md-3 -->
+        <ng-include src="'partials/globalcontent/global.html'"></ng-include>
         <div class="col-md-9">
             <div class="subnav">
             <ul class="list-container-one">
@@ -194,19 +187,7 @@
       </div>
     </div><!-- /.container -->
 
-    <!-- Global Footer -->
-    <footer class="container disclaimer padding-left-right-zero">
-        <div class="row">
-            <div class="col-md-8 col-xs-8">
-                <p>Proprietary and Confidential. Not for disclosure outside of Verizon.</p>
-            </div>
-            <div class="col-md-4 col-xs-4">
-                <p class="pull-right pull-mobile-none">Copyright &copy;
-                    <script>document.write(new Date().getFullYear());</script>
-                </p>
-            </div>
-        </div>
-    </footer>
+    <ng-include src="'partials/layout/footer.html'"></ng-include>
 
   <script src="assets/scripts/jquery.min.js"></script>
   <script src="assets/scripts/bootstrap.min.js"></script>
