@@ -1,4 +1,5 @@
 //angular.module("mockApp", [])
+//Help and Feedback button sidebar
 app
 .directive("helpFeedback", function(){
 			
