@@ -20,9 +20,13 @@
       <script src="scripts/html5shiv.min.js"></script>
       <script src="scripts/respond.min.js"></script>
     <![endif]-->
+    
     <script type="text/javascript">
     	var app = angular.module("VOVApp", []);
     </script>
+    <script src="directives/megaMenu.js"></script>
+    <script src="directives/helpSidebar.js"></script>
+    
    <script src="controllers/searchBarCtrl.js"></script>
    <script src="controllers/footercontroller.js"></script>
   </head>
@@ -51,56 +55,11 @@
             <!-- mobile navbar header ends -->
             <!-- mega menu ends --> 
 
+			<mega-menu ng-controller="menuCtrl" menu-src="menuContent"></mega-menu>
             <ng-include src="'partials/components/searchbar/searchbar.html'"></ng-include>
- 
-            
-            
-            <div id="navbar" class="collapse navbar-collapse">
-              <ul class="nav navbar-nav">
 
-                <!-- VZ Home Dropdown menu for consuming apps -->
-                <li class="dropdown hidden-xs hidden-sm vz-home-dropdown" >
-                  <a href="#" id="vz-home-icon-link" class="vz-home-icon-link">
-                    <span><i class="fa fa-lg fa-home"></i>OneVoice</span>
-                  </a>
-                  <ul class="dropdown-menu fullwidth">
-                      <li class="dropdown-content withdesc">
-                        <div class="row-eq-height">
-                          <div class="col-sm-3">
-                            <ul>
-                              <li><a href="#">Active Call Survey</a></li>
-                              <li><a href="#">DB ANI</a></li>
-                              <li><a href="#">Vocab</a></li>
-                            </ul>
-                          </div>
-                          <div class="col-sm-3">
-                            <ul>
-                              <li><a href="#">CTI Dialer</a></li>
-                              <li><a href="#">Mgmt Tool (IMT)</a></li>
-                            </ul>
-                          </div>
-                          <div class="col-sm-3">
-                            <ul>
-                              <li><a href="#">CTI Admin</a></li>
-                              <li><a href="#">Messaging</a></li>
-                            </ul>
-                          </div>
-                          <div class="col-sm-3">
-                            <ul>
-                              <li><a href="#">CTI Dashboard</a></li>
-                              <li><a href="#">Outbound</a></li>
-                            </ul>
-                          </div>
-                        </div>
-                      </li>
-                    </ul>
-                </li>
-                <li><a href="https://aboutyou.verizon.com">User Admin</a></li>
-
-                <li><a href="#">Approval Queue</a></li>
-               
-              </ul>
-            </div><!--/.nav-collapse -->
+            
+            <!--/.nav-collapse -->
             <!-- /.container-fluid -->
 
             <!--User Profile Menu-->
@@ -129,10 +88,7 @@
             </div><!-- End User Profile dropdown -->
 
             <!--Help and Feedback tabs-->
-            <ul id="help-feedback">
-                <li class="help"><a title="Help" href="#"></a></li>
-                <li class="feedback"><a title="Feedback" href="#"><span></span></a></li>
-            </ul>
+            <help-feedback></help-feedback>
             
           </div>
         </nav>
