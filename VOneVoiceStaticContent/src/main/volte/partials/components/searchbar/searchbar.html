@@ -17,8 +17,8 @@
                               <div class="r url" ng-repeat="result in search.action.elements | filter:searchFilterFunction">
                                 <div>
                                   <a href="javascript:void(0)" onclick=
-                                  "resultClick(result)">
-                                  {{result.name}}</a>
+                                  "resultClick(result)" ng-bind-html="result.name | searchResultFilter:searchInput">
+                                  </a>
                                 </div>
                               </div>
                             </div><span class="open" id="autocomplete_1" ng-show="search.info.elements | filter:searchFilterFunction">{{search.info.name}}</span>

@@ -14,6 +14,7 @@
     <link href="assets/vz-components/vz-search/vz-search.min.css" rel="stylesheet">
     <link href="assets/styles/styles.css" rel="stylesheet">
     <script src="assets/scripts/angular.min.js"></script>
+    <script src="assets/scripts/angular-sanitize.min.js"></script>
     
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -22,13 +23,16 @@
     <![endif]-->
     
     <script type="text/javascript">
-    	var app = angular.module("VOVApp", []);
+    	var app = angular.module("VOVApp", ['ngSanitize']);
     </script>
     <script src="directives/megaMenu.js"></script>
     <script src="directives/helpSidebar.js"></script>
     
    <script src="controllers/searchBarCtrl.js"></script>
+   <script src="filters/searchFilter.js"></script>
    <script src="controllers/footercontroller.js"></script>
+   <script src="services/access/accessService.js"></script>
+   <script src="controllers/accessController.js"></script>
   </head>
   <body>
     <!--Global Navigation-->
@@ -114,31 +118,7 @@
       <!-- Global Content Section -->
       <div class="row">
         <ng-include src="'partials/globalcontent/global.html'"></ng-include>
-        <div class="col-md-9">
-            <div class="subnav">
-            <ul class="list-container-one">
-            <li>
-            <p class="super-note">Module</p>
-            <select id="mod-access" class="module-item-name">
-                <option val="ANI">ANI</option>
-                <option val="IMEI">IMEI</option>
-                <option val="Messaging">Messaging</option>
-                <option val="AccessOne">AccessOne</option>
-            </select>
-            </li>
-            <li class="list-container-item-one">
-            <p class="super-note">Level</p>
-            <select id="level-access"  class="module-item-name">
-            
-            </select>
-            </li>
-            <li>
-            <p class="super-note">Reason</p>
-            <textarea></textarea>
-            </li>
-            </ul>
-            <a role="button" class="btn-submit">Request</a>
-            </div>
+       	<ng-include src="'partials/components/accesslevels/access.html'"> </ng-include>
         </div><!-- /.col-md-3 -->
       </div>
     </div><!-- /.container -->
@@ -149,7 +129,7 @@
   <script src="assets/scripts/bootstrap.min.js"></script>
   <script src="assets/scripts/vzbootstrap.min.js"></script>
   <script src="assets/vz-components/vz-search/vz-search.min.js"></script>
-  <script src="assets/scripts/scripts.js"></script>
+<!--   <script src="assets/scripts/scripts.js"></script> -->
   
   </body>
 </html>

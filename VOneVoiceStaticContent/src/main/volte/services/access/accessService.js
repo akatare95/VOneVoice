@@ -20,17 +20,13 @@ app.service("accessService", function(){
 		    	   levels: ["Level Y","Level Z","Level AA","Level BB","Level CC","Level DD","Level EE","Level FF"]
 		       }
 		],
-		currentModule: this.mods[0],		//current module
-		setModule: function(moduleObject){
-			currentModule = moduleObject;
-		},
 		//get every module
 		getModules: function(){
 			return this.mods;
 		},
-		//get levels for current module
-		getCurrentLevels: function(){
-			return this.currentModule.levels;
+		//get levels
+		getLevels: function(currentModule){
+			return currentModule.levels;
 		}
 	};
 });
