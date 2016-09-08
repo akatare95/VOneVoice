@@ -24,3 +24,36 @@ app.controller("profileController", function($scope) {
 //						<div ng-controller="profileController" profile class="dropdown-menu col-md-4" 
 //							 style="margin:20px 0 0 857px; height:150px; width:300px;"></div>
 //					</ul> -->
+
+/*<script type="text/javascript">
+	var app = angular.module("VOVApp", []);
+</script>
+<script src="controllers/searchBarCtrl.js"></script>
+<script src="controllers/footercontroller.js"></script>
+<!-- Controllers Include -->
+<script src="controllers/profileController.js"></script>
+<!-- Directives Include -->
+<script src="directives/profile.js"></script>*/
+
+/*<link
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+	rel="stylesheet">
+<script type="text/javascript"
+	src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular.js"></script>
+<script type="text/javascript"
+	src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script
+	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script
+	src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+<link
+	href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"
+	rel="stylesheet">
+<script type="text/javascript"
+	src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript"
+	src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script src="script.js"></script>*/
+

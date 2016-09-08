@@ -1,24 +1,20 @@
 app
 .controller('accessCtrl', function($scope, accessService){
 	
+	$scope.access = {};
+	//get modules
+	$scope.access.modules = accessService.getModules();
+	//current module
+	$scope.access.currentModule = $scope.access.modules[0];
+	//current levels
+	$scope.access.levels = function(){
+		return accessService.getLevels($scope.access.currentModule);
+	};
+	//access level
+	//$scope.access.currentLevel = $scope.access.currentModule.levels[0];
+	//reason
+	//$scope.access.currentReason
 	
 		
-		popList();
-
-	$(function() {
-
-	      $('#mod-access').change(function(){
-	        popList();
-	    });
-	    
-	});
-
-	function popList(){
-	    cat=$('#mod-access').val();
-	    $('#level-access').html('');
-	    
-	       eval(cat).forEach(function(t) { 
-	            $('#level-access').append('<option>'+t+'</option>');
-	        });
-	    }
+	
 });
