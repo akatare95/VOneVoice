@@ -1,7 +1,7 @@
 /**
- * 
+ * angular.module("mockApp")
  */
-angular.module("mockApp")
+angular.module("VOVApp")
 .directive("megaMenu", function(){
 
 	return{
@@ -10,11 +10,12 @@ angular.module("mockApp")
 		},
 		restrict:"E",
 		replace:"true",
-		templateUrl:"megaMenu.html"
+		templateUrl:"partials/menuBar/megaMenu.html"
 		
 		
-	}
-}).controller("mockCtrl", function($scope){
+	};
+}).controller("menuCtrl", function($scope){	   
+	
 	$scope.menuContent=[
 	                     {label:"OneVoice", link:"#",
 							subheadings:[{label:"Active Call Survey", link:"#"},{label:"CTI Dialer", link:"#"},{label:"CTI Admin", link:"#"},
@@ -33,4 +34,4 @@ angular.module("mockApp")
 		var ans=label.subheadings.length>0?true:false;
 		return ans;
 	};
-})
+});
