@@ -10,9 +10,10 @@ app=angular.module("VOVApp", []);
 </script>
 <script>
 app
+.constant("RequestsLocation", "server/json/testTable/request.json")
 .controller("VOVAppCtrl", function($scope){
-	$scope.requests= SOME JSON OBJECT;
-	$scope.module=[
+	$http("RequestsLocation").then(function(response){$scope.requests= response},function(){$scope.requests= "";})
+	$scope.modules=[
 						{label:"After Call Survey", show:true},
 						{label:"ANI Block", show:true},
 						{label:"IMT", show:true},
@@ -21,24 +22,24 @@ app
 						{label:"Vocab", show:true}
 				  ];
 	$scope.moduleFilter=function(moduleApp){
-		return module.show===true;
+		return (module.show===true?true:false);
 	};
-	$scope.levelFilter=function(){
-		
-	};
+// 	$scope.levelFilter=function(){
+// 		return ()
+// 	};
 
 })
 </script>
 </head>
 <body>
 <div>
-	<label ng-repeat="entry in module">
-		{{entry.label}	<input type="checkbox" ng-bind="entry.show">
+	<label ng-repeat="entry in modules">
+		{{entry.label}	<input type="checkbox" ng-model="entry.show">
 	</label>
 </div>
-
+<!--  | filter:{module:moduleFilter, level:levelFilter, status:status_type} -->
 	<div id=tableOfRequests>
-		<ul class="row"  ng-repeat="request in requests | filter:{module:moduleFilter, level:levelFilter, status:status_type}">
+		<ul class="row"  ng-repeat="request in requests">
 			<li>{{request.module}}</li>
 			<li>{{request.level}}</li>
 			<li>{{request.access}}</li>

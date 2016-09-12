@@ -1,0 +1,17 @@
+{
+	[
+				{"module":"After Call Survey", "level":"Agent Schedules", "access":"Modify", "reason":"This is the reason", "status":"approved"},
+				{"module":"After Call Survey", "level":"Cappings", "access":"Admin", "reason":"This is the reason", "status":"denied"},
+				{"module":"After Call Survey", "level":"Agent Schedules", "access":"Admin", "reason":"This is the reason", "status":"pending"},
+				{"module":"ANI Block", "level":"Add", "access":"Modify", "reason":"This is the reason", "status":"pending"},
+				{"module":"IMT", "level":"Current", "access":"Admin", "reason":"This is the reason", "status":"pending"},
+				{"module":"Messaging", "level":"Current", "access":"Admin", "reason":"This is the reason", "status":"pending"},
+				{"module":"Messaging", "level":"Retail Routing", "access":"Modify", "reason":"This is the reason", "status":"pending"},
+				{"module":"Outbound", "level":"Campaign", "access":"IT User", "reason":"This is the reason", "status":"pending"},
+				{"module":"Outbound", "level":"Files", "access":"Admin", "reason":"This is the reason", "status":"pending"},
+				{"module":"Vocab", "level":"Config", "access":"Admin", "reason":"This is the reason", "status":"pending"},
+				{"module":"Vocab", "level":"Re-Record", "access":"Bus. User", "reason":"This is the reason", "status":"pending"}
+			   ]
+	
+	
+}
