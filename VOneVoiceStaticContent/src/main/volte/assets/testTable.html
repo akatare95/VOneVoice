@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<script src="assets/scripts/jquery.min.js"></script>
+<script src="assets/scripts/angular.min.js"></script>
+<title>Mock Request Table</title>
+<script>
+app=angular.module("VOVApp", []);
+</script>
+<script>
+app
+.controller("VOVAppCtrl", function($scope){
+	$scope.requests= SOME JSON OBJECT;
+	$scope.module=[
+						{label:"After Call Survey", show:true},
+						{label:"ANI Block", show:true},
+						{label:"IMT", show:true},
+						{label:"Messaging", show:true},
+						{label:"Outbound", show:true},
+						{label:"Vocab", show:true}
+				  ];
+	$scope.moduleFilter=function(moduleApp){
+		return module.show===true;
+	};
+	$scope.levelFilter=function(){
+		
+	};
+
+})
+</script>
+</head>
+<body>
+<div>
+	<label ng-repeat="entry in module">
+		{{entry.label}	<input type="checkbox" ng-bind="entry.show">
+	</label>
+</div>
+
+	<div id=tableOfRequests>
+		<ul class="row"  ng-repeat="request in requests | filter:{module:moduleFilter, level:levelFilter, status:status_type}">
+			<li>{{request.module}}</li>
+			<li>{{request.level}}</li>
+			<li>{{request.access}}</li>
+			<li>{{request.status}}</li>
+		</ul>
+	</div>
+</body>
+</html>
