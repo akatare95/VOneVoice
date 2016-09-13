@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name voneVoiceApp.controller:MainCtrl
+ * @name vovApp.controller:MainCtrl
  * @description
  * # MainCtrl
- * Controller of the voneVoiceApp
+ * Controller of the vovApp
  */
-angular.module('voneVoiceApp')
+angular.module('vovApp')
   .controller('MainCtrl', function () {
     this.awesomeThings = [
       'HTML5 Boilerplate',
