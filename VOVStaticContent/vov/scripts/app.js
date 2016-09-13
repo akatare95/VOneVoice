@@ -1,3 +1,4 @@
+
 'use strict';
 
 /**
@@ -14,5 +15,18 @@ angular
     'ngCookies',
     'ngResource',
     'ngSanitize',
-    'ngTouch'
-  ]);
+    'ngTouch',
+    'ui.router'
+  ]).config(function ($stateProvider, $urlRouterProvider) {
+    $stateProvider
+    // .state('/secondroute3', {
+    //   templateUrl: 'views/secondroute3.html',
+    //   controller: 'Secondroute3Ctrl'
+    // })
+    $urlRouterProvider.otherwise('/');
+    $stateProvider.state('access', {
+      url: '/',
+      templateUrl: 'views/access.html',
+      controller: 'AccessCtrl'
+    })
+});

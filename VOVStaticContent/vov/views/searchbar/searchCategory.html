@@ -1,0 +1,10 @@
+ <span class="open" id="autocomplete_0" ng-show="search.action.elements | filter:searchFilterFunction">{{search.action.name}}</span>
+                            <div class="Suggested" style="display:block">
+                              <div class="r url" ng-repeat="result in search.action.elements | filter:searchFilterFunction">
+                                <div>
+                                  <a href="javascript:void(0)" onclick=
+                                  "resultClick(result)" ng-bind-html="result.name | searchResultFilter:searchInput">
+                                  </a>
+                                </div>
+                              </div>
+                            </div>

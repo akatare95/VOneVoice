@@ -1,0 +1,68 @@
+.logo {background:transparent url('images/onevoice-white.png') 0 0 no-repeat;}
+
+/* Access List */
+.module-item-name, option.module-item-name {
+    font-weight: 700;
+    font-style: normal;
+    font-size: 1.6rem;
+    text-transform: capitalize;
+    color: #06C;
+    line-height: 1.2;
+    margin: 0;
+    position: relative;
+    top: -15px;
+    left: 0px;
+    padding: 23px 0px 10px 12px;
+    /* margin-bottom: 15px; */
+    background: transparent;
+	border: 2px solid #ddd;
+    width: 50%;
+    cursor: pointer;
+}
+.list-container-one {
+	list-style: none !important;
+    padding: 1px;
+}
+.list-container-item-one li {
+	list-style: none;
+	position: relative;
+	margin-bottom: 2rem;
+    margin-left: 2%;
+    width: 50%;
+}
+.list-container-one textarea, textarea.list-container-one {
+	position:relative;
+	top: -15px;
+	background:transparent;
+	width:50%;
+	padding:1em;
+	border:2px solid #ddd;
+	min-height:20rem;
+	height:20rem;
+	overflow-y: auto;
+	padding:23px 0px 10px 12px;
+}
+.super-note {
+	font-size: 1.2rem;
+    color: #696969;
+    margin: 0;
+    text-transform: capitalize;
+    position: relative;
+    top: 9px;
+    left: 16px;
+}
+
+.btn-submit {
+	background:transparent;
+	padding: 12px 20px;
+    border: 2px solid #ddd;
+	transition:all .25s ease-out;
+}
+
+.btn-submit:hover {
+	color:#fff;
+	text-decoration:none;
+	background:#06C 0 0 repeat;
+	padding: 12px 20px;
+    border: 2px solid #06C;
+}
