@@ -63,7 +63,7 @@ app
 </div>
 
 	<div id=tableOfRequests>
-		<ul  style="display: inline-block;"class="row"  ng-repeat="request in requests | filterByModulesSelected ">
+		<ul  style="display: inline-block;"class="row"  ng-repeat="request in requests | filterByModulesSelected:moduleFilter() ">
 			<li>{{request.module}}</li>
 			<li>{{request.level}}</li>
 			<li>{{request.access}}</li>

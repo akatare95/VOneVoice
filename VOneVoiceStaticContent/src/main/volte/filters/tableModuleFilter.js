@@ -2,12 +2,11 @@
  * 
  */
 app
-.filter("filterByModulesSelected", function($scope, $filter){
-	return function(requests){
+.filter("filterByModulesSelected", function($filter){
+	return function(requests, checkedModules){
 		
-		if(angular.isArray(requests))
+		if(angular.isArray(requests) && angular.isArray(checkedModules))
 		{
-			var checkedModules= $scope.moduleFilter();
 			var filteredRequests=[];
 			for(var req=0;req<requests.length;req++)
 			{
