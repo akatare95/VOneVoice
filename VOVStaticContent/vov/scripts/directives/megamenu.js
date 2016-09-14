@@ -14,7 +14,7 @@ angular.module('vovApp')
       },
       restrict:"E",
       replace:"true",
-      templateUrl:"views/menuBar/megaMenu.html"
+      templateUrl:"views/menubar/megaMenu.html"
 
 
     };
