@@ -12,10 +12,10 @@ app=angular.module("VOVApp", []);
 <script>
 app
 .constant("requestsLocation", "server/json/testTable/requests.json")
-.controller("VOVAppCtrl", function($scope,$http,requestsLocation){
+.controller("VOVAppCtrl", function($scope,$http,requestsLocation, $filter, $timeout){
 	$scope.modules=[
 						{name:"After Call Survey", show:true},
-						{name:"ANI Block", show:false},
+						{name:"ANI Block", show:true},
 						{name:"IMT", show:true},
 						{name:"Messaging", show:true},
 						{name:"Outbound", show:true},
@@ -35,13 +35,23 @@ app
 				{"module":"Vocab", "level":"Re-Record", "access":"Bus. User", "reason":"This is the reason", "status":"pending"}
 			   ];
 	$scope.statusTypes=["Approved","Pending","Denied"];
-	$scope.moduleFilter=function($filter){
-		var checkedModules;
-		
-		checkedModules=$filter("filter")($scope.modules, {show:true});
-		
-		return checkedModules.length==0?modules:checkedModules;
-	};
+	
+	angular.element(document).ready(function () {
+		$scope.checkedModules=[];
+		$scope.counter=0;
+		$scope.moduleFilter=function(){
+			$scope.counter++;		
+			
+			$scope.checkedModules=$filter("filter")($scope.modules, {show:true});
+			console.log("checkedModules"+angular.toJson($scope.checkedModules));
+	
+	 		$scope.checkedModules=($scope.checkedModules.length===0?$scope.modules:$scope.checkedModules);
+		};
+		$scope.moduleFilter();
+	});
+	
+	$scope.delayedModuleFilter=$timeout(function () { 
+		$scope.moduleFilter}, 200);
 // 	$scope.levelFilter=function(){
 // 		return ()
 // 	};
@@ -53,7 +63,7 @@ app
 <div>
 	<h4>Modules</h4>
 	<label ng-repeat="entry in modules">
-		{{entry.name}}	<input type="checkbox" ng-model="entry.show"><br>
+		{{entry.name}}	<input type="checkbox" ng-model="entry.show" ng-click="delayedModuleFilter()"><br>
 	</label>
 </div>
 <br>
@@ -63,7 +73,7 @@ app
 </div>
 
 	<div id=tableOfRequests>
-		<ul  style="display: inline-block;"class="row"  ng-repeat="request in requests | filterByModulesSelected:moduleFilter() ">
+		<ul  style="display: inline-block;"  ng-repeat="request in requests | filter:{status:selectedStatus} | filterByModulesSelected:checkedModules">
 			<li>{{request.module}}</li>
 			<li>{{request.level}}</li>
 			<li>{{request.access}}</li>
