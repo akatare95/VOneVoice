@@ -11,10 +11,12 @@ describe('Filter: searchResultFilter', function () {
     searchResultFilter = $filter('searchResultFilter');
   }));
 
-  //TODO Test for filter with text given
-  it('should return the input prefixed with "searchResultFilter filter:"', function () {
-    var text = 'angularjs';
-  //  expect(searchResultFilter(text)).toBe('searchResultFilter filter: ' + text);
+  //TODO Test for filter with text given, with multiple instances of search term
+  it('should return the input string with strong around the given search term', function () {
+    var text = 'angularjs'; //string to search
+    var searchTerm = 'gu';//search term
+    var result = 'an<strong>gu</strong>larjs';//result expected
+    expect(searchResultFilter(text, searchTerm)).toBe(result);
   });
 
 });

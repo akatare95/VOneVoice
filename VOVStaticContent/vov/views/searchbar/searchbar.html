@@ -12,7 +12,7 @@
                         <div class="searchOverlayTop" id="searchOverlayTop1">
                           <!-- search results for people starts -->
                           <div class="results">
-                            <span class="open" id="autocomplete_0" ng-show="search.action.elements | filter:searchFilterFunction">{{search.action.name}}</span>
+                            <span class="open" id="autocomplete_0" >{{search.action.name}}</span>
                             <div class="Suggested" style="display:block">
                               <div class="r url" ng-repeat="result in search.action.elements | filter:searchFilterFunction">
                                 <div>
@@ -21,7 +21,7 @@
                                   </a>
                                 </div>
                               </div>
-                            </div><span class="open" id="autocomplete_1" ng-show="search.info.elements | filter:searchFilterFunction">{{search.info.name}}</span>
+                            </div><span class="open" id="autocomplete_1" >{{search.info.name}}</span>
                             <div class="Suggested" style="display:block">
                               <div class="r url" ng-repeat="result in search.info.elements | filter:searchFilterFunction">
                                 <div>
