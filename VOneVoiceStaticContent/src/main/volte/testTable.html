@@ -8,21 +8,39 @@
 <script>
 app=angular.module("VOVApp", []);
 </script>
+<script src="filters/tableModuleFilter.js"></script>
 <script>
 app
-.constant("RequestsLocation", "server/json/testTable/request.json")
-.controller("VOVAppCtrl", function($scope){
-	$http("RequestsLocation").then(function(response){$scope.requests= response},function(){$scope.requests= "";})
+.constant("requestsLocation", "server/json/testTable/requests.json")
+.controller("VOVAppCtrl", function($scope,$http,requestsLocation){
 	$scope.modules=[
-						{label:"After Call Survey", show:true},
-						{label:"ANI Block", show:true},
-						{label:"IMT", show:true},
-						{label:"Messaging", show:true},
-						{label:"Outbound", show:true},
-						{label:"Vocab", show:true}
+						{name:"After Call Survey", show:true},
+						{name:"ANI Block", show:false},
+						{name:"IMT", show:true},
+						{name:"Messaging", show:true},
+						{name:"Outbound", show:true},
+						{name:"Vocab", show:true}
 				  ];
-	$scope.moduleFilter=function(moduleApp){
-		return (module.show===true?true:false);
+	$scope.requests=[
+				{"module":"After Call Survey", "level":"Agent Schedules", "access":"Modify", "reason":"This is the reason", "status":"approved"},
+				{"module":"After Call Survey", "level":"Cappings", "access":"Admin", "reason":"This is the reason", "status":"denied"},
+				{"module":"After Call Survey", "level":"Agent Schedules", "access":"Admin", "reason":"This is the reason", "status":"pending"},
+				{"module":"ANI Block", "level":"Add", "access":"Modify", "reason":"This is the reason", "status":"pending"},
+				{"module":"IMT", "level":"Current", "access":"Admin", "reason":"This is the reason", "status":"pending"},
+				{"module":"Messaging", "level":"Current", "access":"Admin", "reason":"This is the reason", "status":"pending"},
+				{"module":"Messaging", "level":"Retail Routing", "access":"Modify", "reason":"This is the reason", "status":"pending"},
+				{"module":"Outbound", "level":"Campaign", "access":"IT User", "reason":"This is the reason", "status":"pending"},
+				{"module":"Outbound", "level":"Files", "access":"Admin", "reason":"This is the reason", "status":"pending"},
+				{"module":"Vocab", "level":"Config", "access":"Admin", "reason":"This is the reason", "status":"pending"},
+				{"module":"Vocab", "level":"Re-Record", "access":"Bus. User", "reason":"This is the reason", "status":"pending"}
+			   ];
+	$scope.statusTypes=["Approved","Pending","Denied"];
+	$scope.moduleFilter=function($filter){
+		var checkedModules;
+		
+		checkedModules=$filter("filter")($scope.modules, {show:true});
+		
+		return checkedModules.length==0?modules:checkedModules;
 	};
 // 	$scope.levelFilter=function(){
 // 		return ()
@@ -31,15 +49,21 @@ app
 })
 </script>
 </head>
-<body>
+<body ng-app="VOVApp" ng-controller="VOVAppCtrl">
 <div>
+	<h4>Modules</h4>
 	<label ng-repeat="entry in modules">
-		{{entry.label}	<input type="checkbox" ng-model="entry.show">
+		{{entry.name}}	<input type="checkbox" ng-model="entry.show"><br>
 	</label>
 </div>
-<!--  | filter:{module:moduleFilter, level:levelFilter, status:status_type} -->
+<br>
+<div>
+<h4>Status</h4>
+<select ng-model="selectedStatus" ng-options="item for item in statusTypes"></select>
+</div>
+
 	<div id=tableOfRequests>
-		<ul class="row"  ng-repeat="request in requests">
+		<ul  style="display: inline-block;"class="row"  ng-repeat="request in requests | filterByModulesSelected ">
 			<li>{{request.module}}</li>
 			<li>{{request.level}}</li>
 			<li>{{request.access}}</li>

@@ -1,5 +1,5 @@
 {
-	[
+	"requests":[
 				{"module":"After Call Survey", "level":"Agent Schedules", "access":"Modify", "reason":"This is the reason", "status":"approved"},
 				{"module":"After Call Survey", "level":"Cappings", "access":"Admin", "reason":"This is the reason", "status":"denied"},
 				{"module":"After Call Survey", "level":"Agent Schedules", "access":"Admin", "reason":"This is the reason", "status":"pending"},
