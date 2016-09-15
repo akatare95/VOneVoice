@@ -12,7 +12,7 @@ app=angular.module("VOVApp", []);
 <script>
 app
 .constant("requestsLocation", "server/json/testTable/requests.json")
-.controller("VOVAppCtrl", function($scope,$http,requestsLocation, $filter, $timeout){
+.controller("VOVAppCtrl", function($scope,$http,requestsLocation, $filter,$timeout){
 	$scope.modules=[
 						{name:"After Call Survey", show:true},
 						{name:"ANI Block", show:true},
@@ -50,8 +50,9 @@ app
 		$scope.moduleFilter();
 	});
 	
-	$scope.delayedModuleFilter=$timeout(function () { 
-		$scope.moduleFilter}, 200);
+	$scope.delayedModuleFilter=function(){
+		$timeout(function () {$scope.moduleFilter();}, 200);
+	}
 // 	$scope.levelFilter=function(){
 // 		return ()
 // 	};
@@ -69,7 +70,9 @@ app
 <br>
 <div>
 <h4>Status</h4>
-<select ng-model="selectedStatus" ng-options="item for item in statusTypes"></select>
+<select ng-model="selectedStatus" ng-options="item for item in statusTypes">
+	<option value="Jaja">All</option>
+</select>
 </div>
 
 	<div id=tableOfRequests>
