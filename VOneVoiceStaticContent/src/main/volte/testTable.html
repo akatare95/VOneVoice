@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<script src="assets/scripts/jquery.min.js"></script>
+<script src="assets/scripts/angular.min.js"></script>
+<title>Mock Request Table</title>
+<script>
+app=angular.module("VOVApp", []);
+</script>
+<script src="filters/tableModuleFilter.js"></script>
+<script>
+app
+.constant("requestsLocation", "server/json/testTable/requests.json")
+.controller("VOVAppCtrl", function($scope,$http,requestsLocation, $filter,$timeout){
+	$scope.modules=[
+						{name:"After Call Survey", show:true},
+						{name:"ANI Block", show:true},
+						{name:"IMT", show:true},
+						{name:"Messaging", show:true},
+						{name:"Outbound", show:true},
+						{name:"Vocab", show:true}
+				  ];
+	$scope.requests=[
+				{"module":"After Call Survey", "level":"Agent Schedules", "access":"Modify", "reason":"This is the reason", "status":"approved"},
+				{"module":"After Call Survey", "level":"Cappings", "access":"Admin", "reason":"This is the reason", "status":"denied"},
+				{"module":"After Call Survey", "level":"Agent Schedules", "access":"Admin", "reason":"This is the reason", "status":"pending"},
+				{"module":"ANI Block", "level":"Add", "access":"Modify", "reason":"This is the reason", "status":"pending"},
+				{"module":"IMT", "level":"Current", "access":"Admin", "reason":"This is the reason", "status":"pending"},
+				{"module":"Messaging", "level":"Current", "access":"Admin", "reason":"This is the reason", "status":"pending"},
+				{"module":"Messaging", "level":"Retail Routing", "access":"Modify", "reason":"This is the reason", "status":"pending"},
+				{"module":"Outbound", "level":"Campaign", "access":"IT User", "reason":"This is the reason", "status":"pending"},
+				{"module":"Outbound", "level":"Files", "access":"Admin", "reason":"This is the reason", "status":"pending"},
+				{"module":"Vocab", "level":"Config", "access":"Admin", "reason":"This is the reason", "status":"pending"},
+				{"module":"Vocab", "level":"Re-Record", "access":"Bus. User", "reason":"This is the reason", "status":"pending"}
+			   ];
+	$scope.statusTypes=["Approved","Pending","Denied"];
+	
+	angular.element(document).ready(function () {
+		$scope.checkedModules=[];
+		$scope.counter=0;
+		$scope.moduleFilter=function(){
+			$scope.counter++;		
+			
+			$scope.checkedModules=$filter("filter")($scope.modules, {show:true});
+			console.log("checkedModules"+angular.toJson($scope.checkedModules));
+	
+	 		$scope.checkedModules=($scope.checkedModules.length===0?$scope.modules:$scope.checkedModules);
+		};
+		$scope.moduleFilter();
+	});
+	
+	$scope.delayedModuleFilter=function(){
+		$timeout(function () {$scope.moduleFilter();}, 200);
+	}
+// 	$scope.levelFilter=function(){
+// 		return ()
+// 	};
+
+})
+</script>
+</head>
+<body ng-app="VOVApp" ng-controller="VOVAppCtrl">
+<div>
+	<h4>Modules</h4>
+	<label ng-repeat="entry in modules">
+		{{entry.name}}	<input type="checkbox" ng-model="entry.show" ng-click="delayedModuleFilter()"><br>
+	</label>
+</div>
+<br>
+<div>
+<h4>Status</h4>
+<select ng-model="selectedStatus" ng-options="item for item in statusTypes">
+	<option value="">All</option>
+</select>
+</div>
+
+	<div id=tableOfRequests>
+		<ul  style="display: inline-block;"  ng-repeat="request in requests | filter:{status:selectedStatus} | filterByModulesSelected:checkedModules">
+			<li>{{request.module}}</li>
+			<li>{{request.level}}</li>
+			<li>{{request.access}}</li>
+			<li>{{request.status}}</li>
+		</ul>
+	</div>
+</body>
+</html>
