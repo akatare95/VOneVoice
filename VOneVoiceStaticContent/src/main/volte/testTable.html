@@ -14,12 +14,12 @@ app
 .constant("requestsLocation", "server/json/testTable/requests.json")
 .controller("VOVAppCtrl", function($scope,$http,requestsLocation, $filter,$timeout){
 	$scope.modules=[
-						{name:"After Call Survey", show:true},
-						{name:"ANI Block", show:true},
-						{name:"IMT", show:true},
-						{name:"Messaging", show:true},
-						{name:"Outbound", show:true},
-						{name:"Vocab", show:true}
+						{name:"After Call Survey", show:false},
+						{name:"ANI Block", show:false},
+						{name:"IMT", show:false},
+						{name:"Messaging", show:false},
+						{name:"Outbound", show:false},
+						{name:"Vocab", show:false}
 				  ];
 	$scope.requests=[
 				{"module":"After Call Survey", "level":"Agent Schedules", "access":"Modify", "reason":"This is the reason", "status":"approved"},
@@ -37,21 +37,29 @@ app
 	$scope.statusTypes=["Approved","Pending","Denied"];
 	
 	angular.element(document).ready(function () {
+		//Holder of all checked modules
 		$scope.checkedModules=[];
-		$scope.counter=0;
-		$scope.moduleFilter=function(){
-			$scope.counter++;		
-			
+		//Define function
+		$scope.moduleFilter=function(){	
+			//See which modules are checked to be shown
 			$scope.checkedModules=$filter("filter")($scope.modules, {show:true});
-			console.log("checkedModules"+angular.toJson($scope.checkedModules));
-	
+// 			console.log("checkedModules"+angular.toJson($scope.checkedModules));
+			//If no modules checked show all modules
 	 		$scope.checkedModules=($scope.checkedModules.length===0?$scope.modules:$scope.checkedModules);
 		};
+		//Call function once so that Request Result Table is initialized
 		$scope.moduleFilter();
 	});
+	$scope.selectedStatus="";
+	$scope.statusFilter=function(request){
+		if($scope.selectedStatus==""||$scope.selectedStatus==null)
+			return true;
+		else
+			return request.status.toLowerCase()==$scope.selectedStatus.toLowerCase();
+	}
 	
 	$scope.delayedModuleFilter=function(){
-		$timeout(function () {$scope.moduleFilter();}, 200);
+		$timeout(function () {$scope.moduleFilter();}, 50);
 	}
 // 	$scope.levelFilter=function(){
 // 		return ()
@@ -76,7 +84,7 @@ app
 </div>
 
 	<div id=tableOfRequests>
-		<ul  style="display: inline-block;"  ng-repeat="request in requests | filter:{status:selectedStatus} | filterByModulesSelected:checkedModules">
+		<ul  style="display: inline-block;"  ng-repeat="request in requests | filter:statusFilter | filterByModulesSelected:checkedModules">
 			<li>{{request.module}}</li>
 			<li>{{request.level}}</li>
 			<li>{{request.access}}</li>
