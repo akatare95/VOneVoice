@@ -1,5 +1,5 @@
 app
-.controller('accessCtrl', function($scope, accessService){
+.controller('accessCtrl', function($scope, accessService, $uibModal){
 	
 	$scope.access = {};
 	//get modules
