@@ -1,15 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<script src="assets/scripts/jquery-1.12.4.min.js"></script>
-<script src="assets/scripts/angular.min.js"></script>
-<title>Mock Request Table</title>
-<script>
-app=angular.module("VOVApp", []);
-</script>
-<script src="filters/tableModuleFilter.js"></script>
-<script>
+/**
+ * 
+ */
 app
 .constant("requestsLocation", "server/json/testTable/requests.json")
 .controller("VOVAppCtrl", function($scope,$http,requestsLocation, $filter,$timeout){
@@ -36,13 +27,23 @@ app
 			   ];
 	$scope.statusTypes=["Approved","Pending","Denied"];
 	
+	$scope.buildArray=function(object){
+		var aray=[];
+		var prop;
+		for(prop in object)
+		{
+			aray.push(object[prop]);
+		}
+		return aray;
+	}
+	
 	angular.element(document).ready(function () {
 		//Holder of all checked modules
 		$scope.checkedModules=[];
 		//Define function
 		$scope.moduleFilter=function(){	
 			//See which modules are checked to be shown
-			$scope.checkedModules=$filter("filter")($scope.modules, {show:true});
+			$scope.checkedModules=$filter("filter")($scope.buildArray($scope.modules), {show:true});
 // 			console.log("checkedModules"+angular.toJson($scope.checkedModules));
 			//If no modules checked show all modules
 	 		$scope.checkedModules=($scope.checkedModules.length===0?$scope.modules:$scope.checkedModules);
@@ -68,42 +69,15 @@ app
 	$scope.showStatuses=false;
 	$scope.toggleModules=function(){
 		$scope.showModules=!$scope.showModules;
-		console.log("answer="+$scope.showModules);
+//		console.log("answer="+$scope.showModules);
 	};
 	$scope.toggleStatuses=function(){
 		$scope.showStatuses=!$scope.showStatuses;
-		console.log("answer="+$scope.showStatuses);
+//		console.log("answer="+$scope.showStatuses);
 	};
 	$scope.statusChanged=function(el){
-		console.log("el="+el);
-		console.log(el);
+//		console.log("el="+el);
+//		console.log(el);
 		
 	}
 })
-</script>
-</head>
-<body ng-app="VOVApp" ng-controller="VOVAppCtrl">
-<div>
-	<h4>Modules</h4>
-	<label ng-repeat="entry in modules">
-		{{entry.name}}	<input type="checkbox" ng-model="entry.show" ng-click="delayedModuleFilter()"><br>
-	</label>
-</div>
-<br>
-<div>
-<h4>Status</h4>
-<select ng-model="selectedStatus" ng-options="item for item in statusTypes">
-	<option value="">All</option>
-</select>
-</div>
-
-	<div id=tableOfRequests>
-		<ul  style="display: inline-block;"  ng-repeat="request in requests | filter:statusFilter | filterByModulesSelected:modules">
-			<li>{{request.module}}</li>
-			<li>{{request.level}}</li>
-			<li>{{request.access}}</li>
-			<li>{{request.status}}</li>
-		</ul>
-	</div>
-</body>
-</html>
