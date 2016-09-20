@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="VOVApp">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="assets/images/favicon.ico">
+    <title>VZ Bootstrap Framework | Verizon</title>
+    
+    <!-- Bootstrap core CSS -->
+    <link href="assets/styles/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/styles/vzbootstrap.min.css" rel="stylesheet">
+    <link href="assets/vz-components/vz-search/vz-search.min.css" rel="stylesheet">
+    <link href="assets/styles/styles.css" rel="stylesheet">
+    <script src="assets/scripts/angular.min.js"></script>
+    <script src="assets/scripts/angular-sanitize.min.js"></script>
+    
+ <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+ 	<script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.1.3.js"></script>
+ 	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-animate.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-sanitize.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+
+ <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+	<script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+	<script src="script.js"></script>
+    
+    <script type="text/javascript">var app = angular.module("VOVApp", ['ngAnimate', 'ngSanitize', 'ui.router', 'ui.bootstrap', 'ui.bootstrap.popover', 'ui.bootstrap.tpls']);</script>
+    <script type="text/javascript" src="app.js"></script>
+    
+    <!-- Controllers Include -->
+    <script src="controllers/searchBarCtrl.js"></script>
+    <script src="controllers/footercontroller.js"></script>
+    <script src="controllers/accessController.js"></script>
+	<script src="controllers/profileController.js"></script>
+	
+	<!-- Directives Include -->
+	<script src="directives/profile.js"></script>
+    
+    <!-- Services Include -->
+    <script src="services/access/accessService.js"></script>
+    
+    <!-- Filters Include -->
+    <script src="filters/searchFilter.js"></script>
+    
+    <!-- Assets -->
+    <script src="assets/scripts/jquery.min.js"></script>
+  	<script src="assets/scripts/bootstrap.min.js"></script>
+  	<script src="assets/scripts/vzbootstrap.min.js"></script>
+  	<script src="assets/vz-components/vz-search/vz-search.min.js"></script>
+  	
+<script type="text/javascript">
+  	$('#onHov').hover(function () {
+  	    $('#caret-glyph').removeClass('hidden'); 
+  	}, 
+  	function () {
+  	    $('#caret-glyph').addClass('hidden');
+  	});
+</script>
+  	
+<style>
+	sidebar{
+    	float: left;
+    	max-width: 160px;
+    	height: 100vh;
+    	margin: 0;
+	}
+	pending {
+    	display: inline-block;
+    	margin: 0 0 0 10px;
+    	height: 20px;
+    	border-radius: 100%;
+    	width:20px;
+    	border:solid green 3px;
+	}
+    .badge-notify{
+   		background:blue;
+   		position:absolute;
+   		top:0px;
+    }
+    .table-borderless tbody tr td, .table-borderless tbody tr th, .table-borderless thead tr th {
+    	border: none;
+	}
+    .hidden { 
+    	display: none; 
+    }
+    .rTable { display: table; } 
+    .rTableRow { display: table-row; } 
+    .rTableHeading { display: table-header-group; } 
+    .rTableBody { display: table-row-group; } 
+    .rTableFoot { display: table-footer-group; } 
+    .rTableCell, .rTableHead { display: table-cell; }
+</style>  	
+</head>
+  <body>
+    <!--Global Navigation-->
+    <header class="vz-global-header">
+        <nav class="navbar navbar-default" role="navigation">
+          <div class="container">
+          
+          <!-- mega menu starts -->
+				<div class="navbar-header">
+					<button class="navbar-toggle collapsed" type="button"
+						data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+						aria-controls="navbar">
+						<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+							class="icon-bar"></span>
+					</button>
+					<button type="button" class="search-toggle"></button>
+					
+					<a class="navbar-brand" href="#"></a><br>
+					<ul class="dropdown">
+						<a style="text-decoration: none; margin: 0 0 0 840px;" role="button" href="#" class="dropdown-toggle" 
+						   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ng-app="profileDirective"> 
+							<span class="username"><font color="black">Username</font> <span style="color: red;"
+								  class="glyphicon glyphicon-menu-down"></span></span> <img
+								  alt="Users Profile Avatar" style="height:30px; width:30px;"
+								  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAMAAABg3Am1AAAAWlBMVEXHyMrJyszMzc/P0NLLzM6wsrSsrrC2uLqfoaOjpaebnaC6vL6ztbemqKrR0tSWmJqpq63W19jT1NXOz9GHiYzU1deQkpWMjpGYmpyTlZjZ2tuDhYepq67Cw8WqqozrAAABu0lEQVRIx8WUSYKDIBBFFYOgDEYckNjc/5otELvCkGnVb5XFf/4qNFT/Qf3Ih/FL4APFhy01+77PPUdBehOv6H6iGUKglOPI6v0BjEAp5RGq9RxBpkMpGv7xaOrnGH2ZplBSzrM5pWsaMLJ8I3TKisCIBJ9HOofIYIAA+YatOVdZMO55iQsCVeo0ogKXl8IUWJTvgAoosEMJskBFXKBWUxJmqxRUQIGUTA9bAS3cUKECjsgVYL31BTRd/FDnQcFE3PQlTDeGLUDwEynFhp4WGMQhKD/TXbgEYam3orCR0c0ES5wrLGNHuxxK5RhmyoXqEHLI7akwViKHjC+EG7umtLfbK6H5SbGZAKfkDNwmqCMPpxS/BydUSZ7dC4IQv2kvjDimcUL2ps8lfEWUDwXRtwRLuIrD4I/4Dcbka4WZvCE4+aNfQv5xIqgIQ8l1ICdCM5dP/3FQ4Qy+rhtnHnH8DHkoSCsUGowxg8CMt5s5IEceCkA4jYkOMX2l5IubrO62lN5CPr1ba077Argu38YWd/QJLcvyjPx0rxCYVYDlV/EecNj1U3h4fvs5voPgL/AC/wLrhG9wAvsGW/0CxKlP74i8jegAAAAASUVORK5CYII=">
+						</a>
+						<div ng-controller="profileController" profile class="dropdown-menu col-md-4" 
+							 style="margin:20px 0 0 857px; height:150px; width:300px;"></div>
+					</ul>
+				</div>
+				
+				<div id="navbar" class="collapse navbar-collapse">
+					<ul class="nav navbar-nav">
+
+						<!-- VZ Home Dropdown menu for consuming apps -->
+						<li class="dropdown hidden-xs hidden-sm vz-home-dropdown"><a
+							href="#" id="vz-home-icon-link" class="vz-home-icon-link"> <span><i
+									class="fa fa-lg fa-home"></i>OneVoice</span>
+						</a>
+							<ul class="dropdown-menu fullwidth">
+								<li class="dropdown-content withdesc">
+									<div class="row-eq-height">
+										<div class="col-sm-3">
+											<ul>
+												<li><a ui-sref="oneVoice">One Voice</a></li>
+												<li><a href="#">Active Call Survey</a></li>
+												<li><a href="#">DB ANI</a></li>
+												<li><a href="#">Vocab</a></li>
+											</ul>
+										</div>
+										<div class="col-sm-3">
+											<ul>
+												<li><a href="#">CTI Dialer</a></li>
+												<li><a href="#">Mgmt Tool (IMT)</a></li>
+											</ul>
+										</div>
+										<div class="col-sm-3">
+											<ul>
+												<li><a href="#">CTI Admin</a></li>
+												<li><a href="#">Messaging</a></li>
+											</ul>
+										</div>
+										<div class="col-sm-3">
+											<ul>
+												<li><a href="#">CTI Dashboard</a></li>
+												<li><a href="#">Outbound</a></li>
+											</ul>
+										</div>
+									</div>
+								</li>
+							</ul></li>
+						<li><a href="https://aboutyou.verizon.com">User Admin</a></li>
+
+						<li><a href="#">Approval Queue</a></li>
+
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</header>
+	
+<div class="container-fluid">
+	<sidebar>
+		<button style="height: 3em; width: 100%;">
+			<span style="color: blue;" class="glyphicon glyphicon-log-in">
+			 <font color="blue">User Access</font></span>
+			 <span style="margin:0 0 0 10px;" class="glyphicon glyphicon-menu-right"></span>
+		</button>
+		<button style="height: 3em; width: 100%;">
+			<span><font color="black">Admin</font></span> <span style="margin:0 0 0 50px;" class="badge badge-notify">4</span>
+		</button>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<div class="container" style="width:100%;">
+			<span>Filter By</span>
+		</div>
+		<div id="onHov" style="width:100%;" role="button">
+			<span>Module</span> <span style="margin:0 0 0 70px;" id="caret-glyph" class="glyphicon glyphicon-menu-right" area-hidden="true"></span>
+		</div>
+		<div id="onHov" style="width:100%;">
+			<span>Level</span> <span style="margin:0 0 0 82px;" id="caret-glyph" class="glyphicon glyphicon-menu-right" area-hidden="true"></span>
+		</div>
+		<div id="onHov" style="width:100%;">
+			<span>Status</span> <span style="margin:0 0 0 75px;" id="caret-glyph" class="glyphicon glyphicon-menu-right" area-hidden="true"></span>
+		</div>
+	</sidebar>
+	
+	<div class="col-sm-offset-1 col-sm-8" style="margin: 20px 0 0 50px;"
+		 ng-app>
+	  <font style="font-weight: bold;" color="blue">Access Request</font>
+			<div class="rTable col-md-12 well" ng-mouseenter="options=true" ng-mouseleave="options=false"> 
+				<div class="rTableRow"> 
+					<div class="rTableHead"><strong>Module</strong></div> 
+					<div class="rTableHead"><strong>Level</strong></div> 
+					<div class="rTableHead"><strong>Access</strong></div>
+					<div class="rTableHead"><strong>Reason</strong></div> 
+				</div><br>
+				<div class="rTableRow well"> 
+					<div class="rTableCell"><span><span class="glyphicon glyphicon-list-alt"></span> After Call Survey</span></div> 
+					<div class="rTableCell"><span>Agent Schedules</span></div> 
+					<div class="rTableCell"><span>Admin</span></div> 
+					<div class="rTableCell"><span>This is the reason</span></div>
+					<div class="rTableCell"><span role="button" ng-show="options">
+												<span class="glyphicon glyphicon-pencil"></span>
+												<span class="glyphicon glyphicon-trash"></span>
+											</span></div>
+				</div>
+				
+			</div>
+	</div>
+	<br>
+	<div class="col-sm-8" style="margin: 40px 0 0 50px;">
+		<font style="font-weight: bold;" color="blue">All Requests</font><br>
+		<span class="glyphicon glyphicon-search"></span><span>________________________________________</span>
+	</div>
+	
+	<div class="rTable col-md-8" style="margin: 0 0 0 50px;"> 
+			<div class="rTableRow"> 
+				<div class="rTableHead"><strong>Module</strong></div> 
+				<div class="rTableHead"><strong>Level</strong></div> 
+				<div class="rTableHead"><strong>Access</strong></div>
+				<div class="rTableHead"><strong>Status</strong></div> 
+			</div><br>
+			<div class="rTableRow well"> 
+				<div class="rTableCell"><span><span class="glyphicon glyphicon-list-alt"></span> After Call Survey</span></div> 
+				<div class="rTableCell"><span>Agent Schedules</span></div> 
+				<div class="rTableCell"><span>Modify</span></div> 
+				<div class="rTableCell"><span>This is the reason</span></div>
+				<div class="rTableCell"><span role="button" uib-popover="Approved" popover-trigger="'mouseenter'" style="font-size: 3em; color: green;">&#3664;</span></div>
+			</div><br>
+			<div class="rTableRow well"> 
+				<div class="rTableCell"><span><span class="glyphicon glyphicon-list-alt"></span> After Call Survey</span></div> 
+				<div class="rTableCell"><span>Cappings</span></div> 
+				<div class="rTableCell"><span>Admin</span></div> 
+				<div class="rTableCell"><span>This is the reason</span></div>
+				<div class="rTableCell"><span role="button" uib-popover="Approved" popover-trigger="'mouseenter'" style="font-size: 3em; color: red;">&#3664;</span></div>
+			</div><br>
+			<div class="rTableRow well"> 
+				<div class="rTableCell"><span><span class="glyphicon glyphicon-list-alt"></span> After Call Survey</span></div> 
+				<div class="rTableCell"><span>Agent Schedules</span></div> 
+				<div class="rTableCell"><span>Admin</span></div> 
+				<div class="rTableCell"><span>This is the reason</span></div>
+				<div class="rTableCell"><span role="button" uib-popover="Approved" popover-trigger="'mouseenter'" style="font-size: 3em; color: goldenrod;">&#3664;</span></div>
+			</div><br>
+	</div>
+	 <!-- <pending></pending> -->
+</div>
+	
+	<!-- <div class="row" ui-view></div> -->
+</body>
+</html>
