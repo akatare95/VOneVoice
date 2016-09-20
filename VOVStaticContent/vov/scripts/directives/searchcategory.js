@@ -33,6 +33,14 @@ angular.module('vovApp')
           //get first occurance index
           this.fIndex = this.lStr.indexOf(this.lTerm);
           this.tLen = soughtTerm.length;//get length of term
+          //make an update method
+          this.updateTerm = function(sT){
+            this.lTerm = sT.toLowerCase();
+            this.fIndex = this.lStr.indexOf(this.lTerm);
+            this.tLen = sT.length;
+            //call digest to update 
+            this.digest();
+          }
           /**
           * Take the string apart if there is an occurance of the
           *  sought term, return this object if it is found,
@@ -87,22 +95,20 @@ angular.module('vovApp')
           * Property for reuse, used to check if the term is contained in
           * the given string
           */
-          this.containsTerm = this.fIndex != -1;
+          this.containsTerm = function(){return this.fIndex != -1;}
         }//end class definition for SearchResult
 
-        
+
         /**
-        * Find the given term in the given string
+        * Find the given term in the given string or false
         */
         var findTerm = function(source, term){
           //check that both are strings
           if(!angular.isString(source) || !angular.isString(term)){
             return false;
           }
-          //case correct for search
-          var lSource = source.toLowerCase();
-          var lTerm = term.toLowerCase();
-
+          //html or false for search result
+          return new SearchResult(source, term).html();
         }
         /**
         * Function to check if the given element's given property
@@ -111,19 +117,61 @@ angular.module('vovApp')
         var searchElement = function(e, prop, term){
           //check that e is an object
           if(!angular.isObject(e)){
-            return null;
+            return false;
           }
           //check that prop and term are both strings
           if(!angular.isString(prop) || !angular.isString(term)){
-            return null;
+            return false;
           }
           //check that e has it's own property prop
           if(!e.hasOwnProperty(prop)){
-            return null; //searched for property not existing
+            return false; //searched for property not existing
           }
           //collect digested property, or false if it doesn't contain term
           var result = findTerm(e[prop], term);
-        }
+          return result;//dom or false if no matches
+        }//end method to search an element's given property for the given term
+        /**
+        * Function to search an array of properties for the given term on
+        * the given element
+        */
+        var searchProps = function(e, props, term){
+          //if props is a string, return result from above
+          if(angular.isString(props)){
+            return searchElement(e, props, term);
+          }//end check for single property
+          //check if unrecognized format, i.e. not array
+          if(!angular.isArray(props)){
+            return false;
+          }//end check for not array
+          //loop through array, search each property for term
+          var res = {};
+          var matchFound = false;
+          for(var i = 0; i< props.length; i++){
+            var cur = searchElement(e, props[i], term);//get current element
+            if(cur){
+              //match found, add property and result
+              res[props[i]]=cur;
+              matchFound = true;//MATCH!
+            }//end check for match found
+          }//end loop to find any matches
+          //if no match found, return false
+          if(!matchFound){
+            return false; //no properties match
+          }//end check for no match
+          //for each property not in the result, add it and it's current text
+          for(var i = 0; i < props.length; i++){
+            var curProp = props[i];//current property
+            if(!res.hasOwnProperty(curProp)){
+              //doesn't have it yet, add as string
+              var ele = angular.element('<span>');
+              ele.text(e[curProp]);//add text to span for current property
+              res[curProp] = ele; //res.curProp: element
+            }//end check for need to create the element for the property
+          }//end loop to generate the elements for missing properties
+          //now that res has all the original properties, correctly formatted, return it
+          return res;
+        }//end method to search for the term in given properties of the element
         //watch the search term in the scope
         scope.$watch("searchTerm", function(newValue){
           var heading = angular.element('<span>');//create span for heading
