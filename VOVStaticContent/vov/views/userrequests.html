@@ -1,0 +1,91 @@
+<div class="container-fluid">
+	<sidebar>
+		<button style="height: 3em; width: 100%;">
+			<span style="color: blue;" class="glyphicon glyphicon-log-in">
+			 <font color="blue">User Access</font></span>
+			 <span style="margin:0 0 0 10px;" class="glyphicon glyphicon-menu-right"></span>
+		</button>
+		<button style="height: 3em; width: 100%;">
+			<span><font color="black">Admin</font></span> <span style="margin:0 0 0 50px;" class="badge badge-notify">4</span>
+		</button>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<div class="container" style="width:100%;">
+			<span>Filter By</span>
+		</div>
+		<div id="onHov" style="width:100%;" role="button">
+			<span ng-click="toggleModules()">Module</span>
+			<span style="margin:0 0 0 70px;" id="caret-glyph" class="glyphicon glyphicon-menu-right" area-hidden="true"></span>
+			<div ng-if="showModules">
+			<div ng-repeat="entry in modules">
+				<label>{{entry.name}}</label>
+				<input type="checkbox" ng-model="entry.show" ng-click="delayedModuleFilter()">
+				<br/>
+			</div>
+			</div>
+		</div>
+		<div id="onHov" style="width:100%;">
+			<span>Level</span> <span style="margin:0 0 0 82px;" id="caret-glyph" class="glyphicon glyphicon-menu-right" area-hidden="true"></span>
+		</div>
+		<div id="onHov" style="width:100%;" role="button">
+			<span ng-click="toggleStatuses()">Status</span>
+			<span style="margin:0 0 0 75px;" id="caret-glyph" class="glyphicon glyphicon-menu-right" area-hidden="true"></span>
+			<div id="el" ng-if="showStatuses">
+				<select ng-options="item for item in statusTypes" ng-model="$parent.selectedStatus" >
+					<option value="">All</option>
+				</select>
+			</div>
+		</div>
+	</sidebar>
+
+	<div class="col-sm-offset-1 col-sm-8" style="margin: 20px 0 0 50px;"
+		 ng-app>
+	  <font style="font-weight: bold;" color="blue">Access Request</font>
+			<div class="rTable col-md-12 well" ng-mouseenter="options=true" ng-mouseleave="options=false">
+				<div class="rTableRow">
+					<div class="rTableHead"><strong>Module</strong></div>
+					<div class="rTableHead"><strong>Level</strong></div>
+					<div class="rTableHead"><strong>Access</strong></div>
+					<div class="rTableHead"><strong>Reason</strong></div>
+				</div><br>
+				<div class="rTableRow well">
+					<div class="rTableCell"><span><span class="glyphicon glyphicon-list-alt"></span> After Call Survey</span></div>
+					<div class="rTableCell"><span>Agent Schedules</span></div>
+					<div class="rTableCell"><span>Admin</span></div>
+					<div class="rTableCell"><span>This is the reason</span></div>
+					<div class="rTableCell"><span role="button" ng-show="options">
+												<span ng-click="something"class="glyphicon glyphicon-pencil"></span>
+												<span class="glyphicon glyphicon-trash"></span>
+											</span></div>
+				</div>
+
+			</div>
+	</div>
+	<br>
+	<div class="col-sm-8" style="margin: 40px 0 0 50px;">
+		<font style="font-weight: bold;" color="blue">All Requests</font><br>
+		<span class="glyphicon glyphicon-search"></span><span>________________________________________</span>
+	</div>
+
+	<div class="rTable col-md-8" style="margin: 0 0 0 50px;">
+			<div class="rTableRow">
+				<div class="rTableHead"><strong>Module</strong></div>
+				<div class="rTableHead"><strong>Level</strong></div>
+				<div class="rTableHead"><strong>Access</strong></div>
+				<div class="rTableHead"><strong>Reason</strong></div>
+				<div class="rTableHead"><strong>Status</strong></div>
+			</div><br>
+			<div class="rTableRow well" ng-repeat="request in requests | filter:statusFilter | filterByModulesSelected:modules">
+				<div class="rTableCell"><span><span class="glyphicon glyphicon-list-alt"></span>{{request.module}}</span></div>
+				<div class="rTableCell"><span>{{request.level}}</span></div>
+				<div class="rTableCell"><span>{{request.access}}</span></div>
+				<div class="rTableCell"><span>{{request.reason}}</span></div>
+				<div class="rTableCell"><span role="button" uib-popover="Approved" popover-trigger="'mouseenter'" ng-class="request.status">&#3664;</span></div>
+			</div><br>
+	</div>
+	 <!-- <pending></pending> -->
+</div>
