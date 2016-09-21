@@ -17,8 +17,8 @@ app
 			
 			if(filteredRequests.length===0)
 				return requests;
-			
-			return filteredRequests;
+			else
+				return filteredRequests;
 		}
 		else
 		{
