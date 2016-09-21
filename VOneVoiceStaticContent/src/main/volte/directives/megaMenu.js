@@ -1,5 +1,5 @@
 /**
- * angular.module("mockApp")
+ * 
  */
 angular.module("VOVApp")
 .directive("megaMenu", function(){
