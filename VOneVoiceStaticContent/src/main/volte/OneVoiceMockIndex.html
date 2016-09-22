@@ -97,6 +97,18 @@
     .rTableBody { display: table-row-group; } 
     .rTableFoot { display: table-footer-group; } 
     .rTableCell, .rTableHead { display: table-cell; }
+    <!--ngHide Display visibility none-->
+    .ng-hide{
+      visibility: hidden!important;
+    }
+    .ng-hide:not(.ng-hide-animate) {
+	  /* this is just another form of hiding an element */
+	  visibility: visible!important;
+	  position: absolute;
+	  top: -9999px;
+	  left: -9999px;
+	  color: red;
+	  }
 </style>  	
 </head>
   <body>
@@ -227,6 +239,7 @@
 					<div class="rTableCell"><span role="button" ng-show="options">
 												<span class="glyphicon glyphicon-pencil"></span>
 												<span class="glyphicon glyphicon-trash"></span>
+												<span>Hello</span>
 											</span></div>
 				</div>
 				
