@@ -3,11 +3,13 @@ package com.vzw.onevoice.dto.response;
 import com.vzw.onevoice.enums.AccessRequestStatus;
 
 public class AccessRequest {
+	
 	String moduleName;
 	String level;
 	String accessLevel;
 	String reason;
 	AccessRequestStatus status;
+	
 	public String getModuleName() {
 		return moduleName;
 	}

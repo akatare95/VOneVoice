@@ -16,6 +16,7 @@ import com.vzw.onevoice.dto.base.AbstractBaseDTO;
 @JsonIgnoreProperties(ignoreUnknown=true)
 public abstract class AbstractBaseResponse extends AbstractBaseDTO {
 
+	private String status;
 	private String errorCode;
 	private String message;
 	public String referenceId;
@@ -90,6 +91,14 @@ public abstract class AbstractBaseResponse extends AbstractBaseDTO {
 
 	public void setTransactionId(String transactionId) {
 		this.transactionId = transactionId;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 	
 	
