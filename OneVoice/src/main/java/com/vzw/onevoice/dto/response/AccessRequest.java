@@ -40,5 +40,23 @@ public class AccessRequest {
 	public void setStatus(AccessRequestStatus status) {
 		this.status = status;
 	}
+	@Override
+	public String toString() {
+		return "AccessRequest [moduleName=" + moduleName + ", level=" + level + ", accessLevel=" + accessLevel
+				+ ", reason=" + reason + ", status=" + status + "]";
+	}
+	public AccessRequest(String moduleName, String level, String accessLevel, String reason,
+			AccessRequestStatus status) {
+		this.moduleName = moduleName;
+		this.level = level;
+		this.accessLevel = accessLevel;
+		this.reason = reason;
+		this.status = status;
+	}
+	public AccessRequest() {
+		super();
+	}
+	
+	
 	
 }
