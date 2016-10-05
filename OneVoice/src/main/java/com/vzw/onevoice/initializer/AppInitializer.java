@@ -4,6 +4,8 @@ import java.util.EnumSet;
 
 import javax.servlet.DispatcherType;
 import javax.servlet.Filter;
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
 
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
@@ -41,6 +43,11 @@ public class AppInitializer extends
 				DispatcherType.ASYNC);
 	}
 
+	@Override
+	public void onStartup(ServletContext servletContext) throws ServletException {
+		servletContext.setInitParameter("dispatchOptionsRequest", "true");
+		
+	};
 	@Override
 	protected Filter[] getServletFilters() {
 		return null;

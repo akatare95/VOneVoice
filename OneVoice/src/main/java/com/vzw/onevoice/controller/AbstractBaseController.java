@@ -3,6 +3,8 @@ package com.vzw.onevoice.controller;
 import java.util.List;
 import java.util.ListIterator;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
+
 import com.vzw.onevoice.dto.response.APPResponse;
 import com.vzw.onevoice.dto.response.AbstractBaseResponse;
 import com.vzw.onevoice.util.IIntegrationConst;
@@ -15,12 +17,13 @@ import com.vzw.onevoice.util.RestClientErrorMessageMapper;
  * @version 1.0
  * 
  */
+@CrossOrigin
 public abstract class AbstractBaseController {
 	protected static final String RESPONSE_SUCCESS = "OK";
 	protected static final String RESPONSE_MESSAGE_SUCCESS = "Operation was successful";
 	protected static final String RESPONSE_ERROR = "ERROR";
 	protected static final String RESPONSE_MESSAGE_ERROR = "Error performing operation";
-	protected static final String DEFAULT_JSON_RESPONSE_TAG = "serviceRepsonse";
+	protected static final String DEFAULT_JSON_RESPONSE_TAG = "serviceResponse";
 
 	/**
 	 * @param responseBody
